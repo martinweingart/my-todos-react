@@ -30,7 +30,7 @@ export const DialogContent = ({
         ...defaultStyles,
         ...transitionStyles[state],
       }}
-      className={`absolute h-max w-max max-h-[80%] max-w-[80%] inset-1/2 -translate-x-2/4 -translate-y-2/4 bg-white ${className}`}
+      className={`absolute inset-1/2 -translate-x-2/4 -translate-y-2/4 bg-white ${className}`}
     >
       {children}
     </div>
