@@ -1,11 +1,13 @@
 export interface CheckboxProps {
   className?: string;
   checked: boolean;
+  onChange: (checked: boolean) => void;
 }
 
 export const Checkbox = ({
   className = "",
   checked,
+  onChange,
 }: CheckboxProps): React.ReactElement<CheckboxProps> => {
   return (
     <label
@@ -18,6 +20,7 @@ export const Checkbox = ({
         className="size-5 cursor-pointer accent-cyan-700"
         type="checkbox"
         checked={checked}
+        onChange={(e) => onChange(e.target.checked)}
       />
     </label>
   );

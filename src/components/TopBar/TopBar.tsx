@@ -6,7 +6,6 @@ export const TopBar = (): React.ReactElement<void> => {
   const [searchValue, setSearchValue] = useState("");
   const [open, setOpen] = useState(false);
 
-  console.log(open);
   return (
     <Fragment>
       <Panel open={open} anchor="left" onClose={() => setOpen(false)}>
