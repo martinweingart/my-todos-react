@@ -1,5 +1,8 @@
+import { InputBase } from "../InputBase/InputBase";
+
 export interface TextFieldProps {
   className?: string;
+  label?: string;
   value: string;
   placeholder?: string;
   onChange: (value: string) => void;
@@ -7,17 +10,25 @@ export interface TextFieldProps {
 
 export const TextField = ({
   className = "",
+  label = "",
   value,
   placeholder,
   onChange,
 }: TextFieldProps): React.ReactElement<TextFieldProps> => {
   return (
-    <input
-      className={`w-full h-full py-2 px-1 border-b border-cyan-700 border-opacity-30 focus:border-opacity-90 outline outline-0 focus:outline-0 placeholder:text-sm sm:placeholder:text-xl ${className}`}
-      type="text"
-      value={value}
-      placeholder={placeholder}
-      onChange={(e) => onChange(e.target.value)}
+    <InputBase
+      className={className}
+      label={label}
+      renderInput={(className, id) => (
+        <input
+          id={id}
+          className={className}
+          type="text"
+          value={value}
+          placeholder={placeholder}
+          onChange={(e) => onChange(e.target.value)}
+        />
+      )}
     />
   );
 };
