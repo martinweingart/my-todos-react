@@ -20,7 +20,7 @@ export const Panel = ({
   anchor,
   children,
   onClose,
-}: PanelProps): React.ReactNode => {
+}: PanelProps): React.ReactElement<PanelProps> => {
   const nodeRef = useRef(null);
 
   return createPortal(
