@@ -1,35 +1,30 @@
+import { useState } from "react";
 import { TopBar } from "./components/TopBar/TopBar";
 import { TodoList } from "./components/TodoList/TodoList";
-import { Todo } from "./models/Todo";
 import { ButtonAdd } from "./components/ButtonAdd/ButtonAdd";
-import { Fragment } from "react/jsx-runtime";
-
-const todos: Todo[] = [
-  {
-    created_at: new Date().toISOString(),
-    description: "Test todo",
-    done: true,
-  },
-  {
-    created_at: new Date().toISOString(),
-    description: "Another Todo",
-    done: false,
-  },
-];
+import { AddTodoDialog } from "./components/AddTodoDialog/AddTodoDialog";
+import { AppContextProvider } from "./context";
 
 function App() {
+  const [openAddDialog, setOpenAddDialog] = useState(false);
+
   return (
-    <Fragment>
+    <AppContextProvider>
+      <AddTodoDialog
+        open={openAddDialog}
+        onClose={() => setOpenAddDialog(false)}
+      />
+
       <div className="h-full grid grid-rows-[auto_minmax(0,_1fr)] bg-cyan-50 bg-opacity-5">
         <TopBar />
 
         <div className="flex-1 overflow-auto p-5">
-          <TodoList todos={todos} />
+          <TodoList />
         </div>
 
-        <ButtonAdd onClick={() => {}} />
+        <ButtonAdd onClick={() => setOpenAddDialog(true)} />
       </div>
-    </Fragment>
+    </AppContextProvider>
   );
 }
 
