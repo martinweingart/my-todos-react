@@ -13,6 +13,13 @@ const IconPathMap: Record<string, React.ReactNode> = {
       d="M6 18 18 6M6 6l12 12"
     />
   ),
+  export: (
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15m0-3-3-3m0 0-3 3m3-3V15"
+    />
+  ),
   info: (
     <path
       strokeLinecap="round"
@@ -39,13 +46,6 @@ const IconPathMap: Record<string, React.ReactNode> = {
       strokeLinecap="round"
       strokeLinejoin="round"
       d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-    />
-  ),
-  settings: (
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"
     />
   ),
   trash: (
