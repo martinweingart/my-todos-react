@@ -9,11 +9,12 @@ const colorClasses = {
     slate: "bg-slate-500",
   },
   outlined: {
-    base: "bg-transparent outline outline-1",
-    disabled: "outline-gray-300 text-gray-300",
-    cyan: "outline-cyan-600 text-cyan-600 hover:bg-cyan-50 active:bg-cyan-100",
+    base: "bg-transparent outline outline-1 dark:hover:bg-slate-900 dark:active:bg-slate-700",
+    disabled:
+      "outline-gray-300 text-gray-300 dark:outline-gray-950 dark:text-gray-950",
+    cyan: "outline-cyan-600 text-cyan-600 hover:bg-cyan-50 active:bg-cyan-100 dark:outline-cyan-100 dark:text-cyan-100",
     slate:
-      "outline-slate-600 text-slate-600 hover:bg-slate-50 active:bg-slate-100",
+      "outline-slate-600 text-slate-600 hover:bg-slate-50 active:bg-slate-100 dark:outline-slate-100 dark:text-slate-100",
   },
 };
 

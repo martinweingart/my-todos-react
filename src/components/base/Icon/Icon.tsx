@@ -8,7 +8,7 @@ export interface IconProps {
 export function Icon({ name, className }: IconProps) {
   return (
     <svg
-      className={className}
+      className={`text-cyan-700 dark:text-cyan-100 ${className}`}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"

@@ -16,12 +16,12 @@ export const InputBase = ({
   return (
     <div className={`relative min-w-16 h-11 ${className}`}>
       {renderInput(
-        "peer text-sm outline-0 h-full w-full p-2.5 box-border border rounded text-gray-400 border-gray-400  focus:border-cyan-800 focus:text-cyan-800",
+        "peer text-sm outline-0 h-full w-full p-2.5 box-border border rounded bg-white dark:bg-slate-800 text-gray-400 dark:text-gray-100 border-gray-400 dark:border-gray-200 focus:border-cyan-800 dark:focus:border-cyan-600",
         id
       )}
       <label
         htmlFor={id}
-        className="absolute -top-2 left-1 bg-white text-xs text-gray-400 peer-focus:text-cyan-800"
+        className="absolute -top-2 left-1 bg-white dark:dark:bg-slate-800 text-xs text-gray-400 dark:text-gray-200 peer-focus:text-cyan-800 dark:peer-focus:text-cyan-600"
       >
         {label}
       </label>

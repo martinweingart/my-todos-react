@@ -69,7 +69,7 @@ export const PanelContent = ({
         ...getDefaultAnchorStyles(anchor),
         ...styleByAnchorAndState[anchor][state],
       }}
-      className={`absolute bg-white ${xStyles} ${yStyles}  ${className}`}
+      className={`absolute bg-white dark:bg-slate-800 ${xStyles} ${yStyles}  ${className}`}
     >
       {children}
     </div>

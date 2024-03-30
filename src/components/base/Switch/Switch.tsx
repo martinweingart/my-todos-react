@@ -27,11 +27,11 @@ export const Switch = ({
         />
         <label
           htmlFor={id}
-          className="cursor-pointer absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white border border-gray-200 hover:shadow-md peer-checked:translate-x-full transition-transform"
+          className="cursor-pointer absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-800 hover:shadow-md peer-checked:translate-x-full transition-transform"
         ></label>
       </div>
 
-      <span className="text-xs text-gray-600">{label}</span>
+      <span className="text-xs text-gray-600 dark:text-gray-100">{label}</span>
     </div>
   );
 };

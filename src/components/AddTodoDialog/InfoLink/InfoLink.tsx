@@ -6,7 +6,7 @@ export const InfoLink = () => {
       <Icon className="size-4" name="info" />
 
       <a
-        className="text-xs hover:underline"
+        className="text-xs hover:underline dark:text-white"
         href="https://github.com/todotxt/todo.txt"
         target="_blank"
       >
