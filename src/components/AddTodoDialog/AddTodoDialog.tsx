@@ -6,6 +6,8 @@ import { MultipleForm, MultipleFormTodo } from "./MultipleForm/MultipleForm";
 import { Button } from "../base/Button/Button";
 import { SimpleForm } from "./SimpleForm/SimpleForm";
 import { AppContext } from "../../context";
+import { formatDate } from "../../helpers";
+import { TodoStorageService } from "../../services/TodoStorageService";
 
 export interface AddTodoDialogProps extends Omit<DialogProps, "children"> {}
 
@@ -29,13 +31,54 @@ export const AddTodoDialog = (
   }, [multipleValue]);
 
   const onSave = () => {
-    add({
-      id: new Date().getDate(),
-      created_at: new Date().toISOString(),
-      description: simpleValue,
+    let priority, project, context, description, due;
+
+    if (multiple) {
+      description = multipleValue.description;
+      due = multipleValue.due;
+      priority = multipleValue.priority;
+      project = multipleValue.project;
+      context = multipleValue.context;
+    } else {
+      description = simpleValue;
+
+      const match = simpleValue.match(
+        /(\([A-Z]\)\s)?([\w\s]+)(\+[\w]+\s?)?(@[\w]+\s?)?(due:\d{4}-\d{2}-\d{2})?/
+      );
+      if (match) {
+        description = match[2].trim();
+        due = match[5]?.substring(4);
+        priority = match[1]?.substring(1, 2);
+        project = match[3]?.substring(1).trim();
+        context = match[4]?.substring(1).trim();
+      }
+    }
+
+    const newTodo = {
+      id: new Date().getTime(),
+      created_at: formatDate(new Date()),
+      description,
       done: false,
-    });
+      priority,
+      project,
+      context,
+      due,
+    };
+
+    TodoStorageService.add(newTodo);
+    add(newTodo);
+
+    props.onClose();
   };
+
+  useEffect(() => {
+    if (props.open) {
+      setSimpleValue("");
+      setMultipleValue({
+        description: "",
+      });
+    }
+  }, [props.open]);
 
   return (
     <Dialog className="h-max w-11/12 p-5 rounded" {...props}>

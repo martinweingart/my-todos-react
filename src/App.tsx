@@ -1,29 +1,31 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { TopBar } from "./components/TopBar/TopBar";
 import { TodoList } from "./components/TodoList/TodoList";
 import { ButtonAdd } from "./components/ButtonAdd/ButtonAdd";
-import { AddTodoDialog } from "./components/AddTodoDialog/AddTodoDialog";
 import { AppContextProvider } from "./context";
+import { Filters } from "./components/PanelFilters/Filters/Filters";
+import { Box } from "./components/base";
+import { initializeTheme } from "./services/ThemeService";
 
 function App() {
-  const [openAddDialog, setOpenAddDialog] = useState(false);
+  useEffect(() => initializeTheme(), []);
 
   return (
     <AppContextProvider>
-      <AddTodoDialog
-        open={openAddDialog}
-        onClose={() => setOpenAddDialog(false)}
-      />
-
-      <div className="h-full grid grid-rows-[auto_minmax(0,_1fr)] bg-cyan-50 bg-opacity-5">
+      <Box className="h-full grid grid-rows-[auto_minmax(0,_1fr)]">
         <TopBar />
 
-        <div className="flex-1 overflow-auto p-5">
-          <TodoList />
-        </div>
+        <Box className="flex flex-1">
+          <div className="hidden xl:block xl:p-8 xl:bg-cyan-50 xl:bg-opacity-50 dark:xl:bg-cyan-950 dark:xl:bg-opacity-50  xl:min-w-60">
+            <Filters />
+          </div>
+          <Box className="flex-1 overflow-auto p-5">
+            <TodoList />
+          </Box>
+        </Box>
 
-        <ButtonAdd onClick={() => setOpenAddDialog(true)} />
-      </div>
+        <ButtonAdd />
+      </Box>
     </AppContextProvider>
   );
 }
